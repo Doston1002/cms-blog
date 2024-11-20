@@ -1,4 +1,3 @@
-
 import AuthorCard from '@/components/cards/author'
 import { authors } from '@/constants'
 import { Dot, Home } from 'lucide-react'

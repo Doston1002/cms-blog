@@ -1,33 +1,29 @@
 import BlogCard from '@/components/cards/blog'
-import { blogs } from '@/constants'
-import {  Dot, Home } from 'lucide-react'
-import Link from 'next/link'
-import React from 'react'
+import BgArrow from '@/components/shared/bg-arrow'
+import { getBlogs } from '@/service/blog.service'
 
-const BlogsPage = () => {
-  return (
-    <div className='max-w-6xl mx-auto'>
-        <div className='relative min-h-[40vh] flex items-center justify-end flex-col'>
-            <h2 className='text-center text-4xl section-title font-creteRound'>
-                <span>Blogs</span>
-            </h2>
-            <div className='flex gap-1 items-center mt-4'>
-                <Home className='w-4 h-4'/>
-                <Link href={'/'} className='opasity-90 hover:underline hover:opacity-100'>
-                    Home
-                </Link>
-                <Dot/>
-                <p className='text-muted-foreground'>Blogs</p>
-            </div>
-        </div>
-        <div className='grid grid-cols-2 max-md:grid-cols-1 gap-x-4 gap-y-24 mt-24'>
-            {blogs.map(blog=>(
-                <BlogCard key={blog.title} {...blog} isVertical/>
-            ))}
+async function HomePage() {
+	const blogs = await getBlogs()
 
-        </div>
-    </div>
-  )
+	return (
+		<div className='max-w-6xl mx-auto'>
+			<div className='relative min-h-[60vh] flex items-center justify-center'>
+				<h1 className='text-3xl md:text-4xl lg:text-5xl font-creteRound text-center max-w-2xl'>
+					Taking control of your daily life is easy when you know how!
+				</h1>
+				<BgArrow />
+			</div>
+			<h2 className='text-center text-4xl section-title font-creteRound'>
+				<span>Recent posts</span>
+			</h2>
+
+			<div className='flex flex-col space-y-24 mt-24'>
+				{blogs.map(blog => (
+					<BlogCard key={blog.title} {...blog} />
+				))}
+			</div>
+		</div>
+	)
 }
 
-export default BlogsPage
+export default HomePage
