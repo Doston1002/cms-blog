@@ -8,3 +8,7 @@ export interface IBlog{
     image:string
     tags:string[]
 }
+export interface IAuthor {
+	name: string
+	image: string
+}
