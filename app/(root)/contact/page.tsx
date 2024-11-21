@@ -1,7 +1,5 @@
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
-import { Dot, Home, Mail, Phone, Send } from 'lucide-react'
+import ContactForm from '@/components/forms/contact'
+import { Dot, Home, Mail, Phone } from 'lucide-react'
 import Link from 'next/link'
 
 function ContactPage() {
@@ -45,18 +43,7 @@ function ContactPage() {
 
 				<div>
 					<h1 className='text-4xl font-creteRound mb-2'>Contact form</h1>
-					<div className='flex flex-col space-y-3'>
-						<Textarea
-							className='resize-none h-32'
-							placeholder='Ask question or just say Hi'
-						/>
-						<Input placeholder='Email address' />
-						<Input placeholder='Your name here' />
-						<Button className='w-fit' size={'lg'}>
-							<span>Send</span>
-							<Send className='w-4 h-4 ml-2' />
-						</Button>
-					</div>
+					<ContactForm />
 				</div>
 			</div>
 		</div>
