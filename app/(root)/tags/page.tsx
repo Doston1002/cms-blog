@@ -31,7 +31,7 @@ async function Page() {
 				</div>
 			</div>
 
-			<div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-24'>
+			<div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-24 gap-4'>
 				{tags.map(item => (
 					<CategoriesTagsCard key={item.slug} {...item} type='tags' />
 				))}

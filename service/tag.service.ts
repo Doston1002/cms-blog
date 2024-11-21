@@ -10,6 +10,9 @@ export const getTags = async () => {
 			tags {
 				name
 				slug
+				blogs(where: { archive: true }) {
+				id
+				}
 			}
 		}
 	`

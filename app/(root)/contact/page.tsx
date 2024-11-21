@@ -33,11 +33,11 @@ function ContactPage() {
 
 					<div className='mt-12 flex items-center gap-3'>
 						<Mail className='w-4 h-4' />
-						<p className='text-sm'>info@sammi.ac</p>
+						<p className='text-sm'>polatovdoston1002@gmail.com</p>
 					</div>
 					<div className='flex items-center gap-3 mt-2'>
 						<Phone className='w-4 h-4' />
-						<p className='text-sm'>+98 02 296 4902</p>
+						<p className='text-sm'>+998 90 314 61 77</p>
 					</div>
 				</div>
 
