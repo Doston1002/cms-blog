@@ -3,10 +3,10 @@ import request, { gql } from 'graphql-request'
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT!
 
-export const getBlogsByTag = async (slug: string) => {
+export const getBlogsByCategory = async (slug: string) => {
 	const query = gql`
 		query MyQuery($slug: String!) {
-			tag(where: { slug: $slug }) {
+			category(where: { slug: $slug }) {
 				blogs {
 					description
 					author {
@@ -39,10 +39,10 @@ export const getBlogsByTag = async (slug: string) => {
 		}
 	`
 
-	const { tag } = await request<{ tag: { blogs: IBlog[]; name: string } }>(
+	const { category } = await request<{ category: { blogs: IBlog[]; name: string } }>(
 		graphqlAPI,
 		query,
 		{ slug }
 	)
-	return tag
+	return category
 }
