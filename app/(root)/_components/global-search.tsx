@@ -1,7 +1,13 @@
 'use client'
+
 import SearchCard from '@/components/cards/search'
 import { Badge } from '@/components/ui/badge'
-import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from '@/components/ui/drawer'
+import {
+	Drawer,
+	DrawerClose,
+	DrawerContent,
+	DrawerTrigger,
+} from '@/components/ui/drawer'
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
 import { popularCategories, popularTags } from '@/constants'
@@ -16,7 +22,6 @@ function GlobalSearch() {
 	const [isLoading, setIsLoading] = useState(false)
 	const [blogs, setBlogs] = useState<IBlog[]>([])
 
-	
 	const handleSearch = async (e: ChangeEvent<HTMLInputElement>) => {
 		const text = e.target.value.toLowerCase()
 
@@ -30,6 +35,7 @@ function GlobalSearch() {
 			setIsLoading(false)
 		}
 	}
+
 	const debounceSearch = debounce(handleSearch, 500)
 
 	return (
@@ -48,7 +54,7 @@ function GlobalSearch() {
 						onChange={debounceSearch}
 						disabled={isLoading}
 					/>
-							{isLoading && <Loader2 className='animate-spin mt-4 mx-auto' />}
+					{isLoading && <Loader2 className='animate-spin mt-4 mx-auto' />}
 					{blogs.length ? (
 						<div className='text-2xl font-creteRound mt-8'>
 							{blogs.length} Results found.
@@ -61,40 +67,45 @@ function GlobalSearch() {
 					{blogs.length ? <Separator className='mt-3' /> : null}
 					<div className='flex flex-col space-y-2 mt-4'>
 						<div className='flex items-center gap-2'>
+							<p className='font-creteRound text-2xl'>
+								See posts by categories
+							</p>
+							<Minus />
 
-						<p className='font-creteRound text-2xl'>See posts by categories</p>
-						<Minus />
-
-						<Link href={'/categories'} className='text-blue-500 underline hover:opacity-90'>
-						<DrawerClose>
-							See all
-						</DrawerClose>
-						</Link>
+							<Link href={'/categories'}>
+								<DrawerClose className='text-blue-500 underline hover:opacity-90'>
+									See all
+								</DrawerClose>
+							</Link>
 						</div>
 						<div className='flex flex-wrap gap-2'>
 							{popularCategories.map(item => (
-								<Badge key={item.slug} variant={'secondary'}>
-									{item.name}
-								</Badge>
+								<Link key={item.slug} href={`/categories/${item.slug}`}>
+									<DrawerClose>
+										<Badge variant={'secondary'}>{item.name}</Badge>
+									</DrawerClose>
+								</Link>
 							))}
 						</div>
 					</div>
 
 					<div className='flex flex-col space-y-2 mt-4'>
 						<div className='flex items-center gap-2'>
-						<p className='font-creteRound text-2xl'>See posts by tags</p>
-						<Minus />
-						<Link href={'/tags'} className='text-blue-500 underline hover:opacity-90'>
-						<DrawerClose>
-							See all
-						</DrawerClose>
-						</Link>
+							<p className='font-creteRound text-2xl'>See posts by tags</p>
+							<Minus />
+							<Link href={'/tags'}>
+								<DrawerClose className='text-blue-500 underline hover:opacity-90'>
+									See all
+								</DrawerClose>
+							</Link>
 						</div>
 						<div className='flex flex-wrap gap-2'>
 							{popularTags.map(item => (
-								<Badge key={item.slug} variant={'secondary'}>
-									{item.name}
-								</Badge>
+								<Link key={item.slug} href={`/tags/${item.slug}`}>
+									<DrawerClose>
+										<Badge variant={'secondary'}>{item.name}</Badge>
+									</DrawerClose>
+								</Link>
 							))}
 						</div>
 					</div>

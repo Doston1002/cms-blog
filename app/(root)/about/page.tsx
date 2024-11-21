@@ -1,8 +1,13 @@
 import AuthorCard from '@/components/cards/author'
 import { getAuthors } from '@/service/author.service'
 import { Dot, Home } from 'lucide-react'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+	title: 'About us',
+}
 
 async function AboutPage() {
 	const authors = await getAuthors()

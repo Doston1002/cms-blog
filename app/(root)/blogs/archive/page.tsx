@@ -1,7 +1,16 @@
+import { getArchiveBlogs } from '@/service/blog.service'
+import { format } from 'date-fns'
 import { Archive, Dot, Home } from 'lucide-react'
+import { Metadata } from 'next'
 import Link from 'next/link'
 
-function ArchivePage() {
+export const metadata: Metadata = {
+	title: 'Archive blogs',
+}
+
+async function ArchivePage() {
+	const blogs = await getArchiveBlogs()
+
 	return (
 		<div className='max-w-6xl mx-auto'>
 			<div className='relative min-h-[40vh] flex items-center justify-end flex-col'>
@@ -29,30 +38,35 @@ function ArchivePage() {
 					<p className='text-muted-foreground'>Archive</p>
 				</div>
 			</div>
-
-			<div className='flex flex-col space-y-3 mt-8'>
-				<div className='relative'>
-					<span className='text-5xl font-creteRound relative z-20'>2023</span>
-					<Archive className='absolute w-16 h-16 -translate-x-4 -translate-y-12 opacity-10' />
-				</div>
-			</div>
-
-			<div className='flex flex-col space-y-2 mt-8'>
-				<div className='flex gap-2 text-lg text-muted-foreground'>
-					<p>05 Dec</p>
-					<Dot className='text-white w-8 h-8' />
-					<div className='hover:text-white hover:underline cursor-pointer'>
-						The AGI hype train is running out of steam
+			{blogs.map(blog => (
+				<>
+					<div className='flex flex-col space-y-3 mt-8'>
+						<div className='relative'>
+							<span className='text-5xl font-creteRound relative z-20'>
+								{blog.year}
+							</span>
+							<Archive className='absolute w-16 h-16 -translate-x-4 -translate-y-12 opacity-10' />
+						</div>
 					</div>
-				</div>
-				<div className='flex gap-2 text-lg text-muted-foreground'>
-					<p>05 Dec</p>
-					<Dot className='text-white w-8 h-8' />
-					<div className='hover:text-white hover:underline cursor-pointer'>
-						The AGI hype train is running out of steam
+					<div className='flex flex-col space-y-2 mt-8'>
+						{blog.blogs.map(item => (
+							<div
+								className='flex gap-2 text-lg text-muted-foreground'
+								key={item.slug}
+							>
+								<p>{format(new Date(item.createdAt), 'dd MMM')}</p>
+								<Dot className='text-white w-8 h-8' />
+								<Link
+									href={`/blogs/${item.slug}`}
+									className='hover:text-white hover:underline cursor-pointer'
+								>
+									{item.title}
+								</Link>
+							</div>
+						))}
 					</div>
-				</div>
-			</div>
+				</>
+			))}
 		</div>
 	)
 }

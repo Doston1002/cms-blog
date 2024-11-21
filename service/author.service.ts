@@ -13,7 +13,7 @@ export const getAuthors = async () => {
 				image {
 					url
 				}
-				blogs {
+				blogs(where: { archive: true }) {
 					id
 				}
 			}
@@ -33,7 +33,8 @@ export const getDetaileddAuthor = async (id: string) => {
 					url
 				}
 				name
-				blogs {
+				blogs(where: { archive: true }) {
+				
 					description
 					author {
 						name
