@@ -1,46 +1,72 @@
-import { IBlog } from '@/types';
-import { GraphQLClient, gql } from 'graphql-request';
+import { IBlog } from '@/types'
+import request, { gql } from 'graphql-request'
 
-const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT!;
-const token = process.env.NEXT_PUBLIC_GRAPHCMS_TOKEN; // Add your token here
+const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT!
 
 export const getBlogs = async () => {
-  const client = new GraphQLClient(graphqlAPI, {
-    headers: {
-      Authorization: `Bearer ${token}`, // Pass the token here
-    },
-  });
+	const query = gql`
+		query MyQuery {
+			blogs {
+				title
+				createdAt
+				author {
+					name
+					image {
+						url
+					}
+				}
+				category {
+					name
+					slug
+				}
+				description
+				tag {
+					name
+					slug
+				}
+				image {
+					url
+				}
+				content {
+					html
+				}
+				slug
+			}
+		}
+	`
 
-  const query = gql`
-    query MyQuery {
-      blogs {
-        title
-        createdAt
-        author {
-          name
-          image {
-            url
-          }
-        }
-        category {
-          name
-          slug
-        }
-        description
-        tag {
-          name
-          slug
-        }
-        image {
-          url
-        }
-        content {
-          html
-        }
-      }
-    }
-  `;
+	const { blogs } = await request<{ blogs: IBlog[] }>(graphqlAPI, query)
+	return blogs
+}
 
-  const { blogs } = await client.request<{ blogs: IBlog[] }>(query);
-  return blogs;
-};
+export const getDetailedBlog = async (slug: string) => {
+	const query = gql`
+		query MyQuery($slug: String!) {
+			blog(where: { slug: $slug }) {
+				author {
+					name
+					image {
+						url
+					}
+					bio
+				}
+				content {
+					html
+				}
+				createdAt
+				image {
+					url
+				}
+				slug
+				tag {
+					name
+					slug
+				}
+				title
+			}
+		}
+	`
+
+	const { blog } = await request<{ blog: IBlog }>(graphqlAPI, query, { slug })
+	return blog
+}
