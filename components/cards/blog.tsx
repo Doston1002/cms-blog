@@ -69,18 +69,17 @@ function BlogCard(blog: Props) {
 					<div className='flex items-center gap-2'>
 						<Link href={`/tags/${blog.tag.slug}`}>
 							<Badge variant={'secondary'} role='button'>
-								<Tag className='w-3 h-3 mr-2'/>
+								<Tag className='w-3 h-3 me-2' />
 								{blog.tag.name}
 							</Badge>
 						</Link>
 						<Link href={`/categories/${blog.category.slug}`}>
 							<Badge variant={'outline'} role='button'>
-							<Layers2 className='w-3 h-3 mr-2'/>
+								<Layers2 className='w-3 h-3 me-2' />
 								{blog.category.name}
 							</Badge>
 						</Link>
 					</div>
-					
 				</div>
 			</div>
 		</div>
