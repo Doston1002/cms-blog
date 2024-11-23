@@ -28,7 +28,7 @@ export const getBlogsByCategory = cache(async (slug: string) => {
 	const query = gql`
 		query MyQuery($slug: String!) {
 			category(where: { slug: $slug }) {
-				blogs(where: { archive: true })  {
+				blogs  {
 					description
 					author {
 						name
