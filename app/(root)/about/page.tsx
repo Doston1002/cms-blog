@@ -32,7 +32,7 @@ async function AboutPage() {
 				</div>
 			</div>
 			<h1 className='text-center text-4xl font-creteRound'>
-				We are the Sammi, <br /> Team of content writers and designers.
+				We are the Doston, <br /> Team of content writers and designers.
 			</h1>
 
 			<div className='grid grid-cols-4 gap-4 min-h-96 mt-6'>
@@ -78,7 +78,7 @@ async function AboutPage() {
 			</div>
 
 			<h2 className='text-center text-4xl section-title font-creteRound my-12'>
-				<span>Our writers</span>
+				<span>My writers</span>
 			</h2>
 
 			<div className='flex justify-around max-md:flex-col max-md:space-y-4 max-md:items-center'>

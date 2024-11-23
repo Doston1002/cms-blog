@@ -18,25 +18,25 @@ const workSans = Work_Sans({
 })
 
 export const metadata: Metadata = {
-	metadataBase: new URL('https://test-blog.sammi.ac'),
-	title: 'Sammi dasturlashga oid maqolalar',
+	metadataBase: new URL('https://dostondev.uz'),
+	title: "Doston Po'latov",
 	description:
 		'Dasturlash haqida yangiliklar, maslahatlar, va dasturlash sohasidagi eng soʻnggi xabarlar. Bizning blogda dasturlashni oʻrganish va rivojlantirish uchun qoʻllanma topishingiz mumkin.',
-	authors: [{ name: 'Samar Badriddinov', url: 'https://sammi.ac' }],
+	authors: [{ name: "Doston Po'latov", url: 'https://dostondev.uz' }],
 	icons: { icon: '/favicon.png' },
 	keywords:
-		"samar badriddinov, sammi, dasturlash kurslari, dasturlashga oid darslar, reactjs uzbek tilida, vuejs uzbek tilida, redux uzbek tilida, sammi, sammi academy, bepul dasturlash, rezyume yozish, portfolio, sammi javascript, sammi raqamli avlod, javascript, reactjs, vuejs, javascript darslari, reactjs darslari, vuejs darslari, dasturlash darslari, o'zbek tilida dasturlash, reactjs o'zbek tilida, reactjs darslari o'zbek tilida, javascript darslari, javascript darslari o'zbek tilida, dasturash darslari o'zbek tilida, dasturlashni o'rganish, dasturlash, IT loyihalar o'zbek tilida",
+		"Doston Po'latov, Po'latov Doston, Dostondev,  dasturlashga oid darslar, reactjs uzbek tilida, vuejs uzbek tilida, redux uzbek tilida, dostondev, dostondev academy, bepul dasturlash, rezyume yozish, portfolio, sammi javascript, dostondev raqamli avlod, javascript, reactjs, vuejs, javascript darslari, reactjs darslari, vuejs darslari, dasturlash darslari, o'zbek tilida dasturlash, reactjs o'zbek tilida, reactjs darslari o'zbek tilida, javascript darslari, javascript darslari o'zbek tilida, dasturash darslari o'zbek tilida, dasturlashni o'rganish, dasturlash, IT loyihalar o'zbek tilida",
 	openGraph: {
-		title: 'Sammi dasturlashga oid maqolalar',
+		title: 'Dostondev dasturlashga oid maqolalar',
 		description:
 			'Dasturlash haqida yangiliklar, maslahatlar, va dasturlash sohasidagi eng soʻnggi xabarlar. Bizning blogda dasturlashni oʻrganish va rivojlantirish uchun qoʻllanma topishingiz mumkin.',
 		type: 'website',
-		url: 'https://test-blog.sammi.ac',
+		url: 'https://dostondev.uz',
 		locale: 'en_EN',
 		images: 'https://media.graphassets.com/kXL006lyRnW46IKTHdHs',
 		countryName: 'Uzbekistan',
-		siteName: 'Sammi',
-		emails: 'info@sammi.ac',
+		siteName: 'Dostondev',
+		emails: 'polatovdoston1002@gmail.com',
 	},
 }
 

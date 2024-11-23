@@ -22,7 +22,7 @@ const Mobile = () => {
         </SheetTrigger>
         <SheetContent>
         <Link href={'/'}>
-            <h1 className='text-4xl font-creteRound'>Sammi</h1>
+            <h1 className='text-4xl font-creteRound'>Dostondev</h1>
         </Link>
         <Separator className='my-3'/>
         <div className="flex flex-col space-y-3">

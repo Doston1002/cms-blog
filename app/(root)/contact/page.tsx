@@ -25,7 +25,7 @@ function ContactPage() {
 
 			<div className='grid grid-cols-2 max-md:grid-cols-1 gap-4 mt-6'>
 				<div className='flex flex-col'>
-					<h1 className='text-4xl font-creteRound'>Contact Sammi</h1>
+					<h1 className='text-4xl font-creteRound'>Contact Doston</h1>
 					<p className='mt-2 text-muted-foreground'>
 						I am here to help and answer any question you might have. I look
 						forward to hearing from you
